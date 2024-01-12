@@ -7,13 +7,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class WebsiteParser:
+    # Путь к файлу geckodriver
+    geckodriver_path = r'C:\Windows\System32\geckodriver.exe'
     def __init__(self, url: str):
         self.url = url
         options = Options()
+        options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
         options.add_argument('--headless')
         options.add_argument('--disable-gpu')
         options.add_argument('--hide-scrollbars')
-        self.driver = webdriver.Firefox(options=options) # Укажите путь к GeckoDriver
+        self.driver = webdriver.Firefox(executable_path=self.geckodriver_path,options=options) # Укажите путь к GeckoDriver
     def __enter__(self):
         return self
     def __exit__(self, exc_type, exc_val, exc_tb):
