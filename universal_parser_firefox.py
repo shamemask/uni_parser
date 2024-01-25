@@ -16,7 +16,7 @@ class WebsiteParser:
         options.add_argument('--headless')
         options.add_argument('--disable-gpu')
         options.add_argument('--hide-scrollbars')
-        self.driver = webdriver.Firefox(executable_path=self.geckodriver_path,options=options) # Укажите путь к GeckoDriver
+        self.driver = webdriver.Firefox(options=options) # Укажите путь к GeckoDriver
     def __enter__(self):
         return self
     def __exit__(self, exc_type, exc_val, exc_tb):
